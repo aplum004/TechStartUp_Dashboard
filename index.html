@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JQuerySample</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/d3js/7.8.5/d3.min.js"></script>
+
+<!-- https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l -->
+<!-- https://medium.com/@brajagopal.tripathi/how-to-change-the-text-color-on-a-mouseover-in-html-697f4d4210fa -->
+<style>
+	.my-table{
+		border-collapse: collapse;
+		margin: 25px 0;
+		font-size: 0.9em;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		min-width: 400px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+	}
+	.my-table tr {
+		transition: background-color 0.2s ease;
+	}
+	.my-table tr:hover {
+		background-color:#e3f2fd;
+		color: #000;
+	}
+	.my-table th, .my-table td {
+		padding: 12px 15px;
+		border-bottom: 1px solid #ddd;
+	}
+	.my-table th {
+		background-color: #009879;
+		color: white;
+		text-align: left;;
+	}
+</style>
+</head>
+<body>
+	<table class="my-table" id="people"> 
+		<tr>
+		<th>Name</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
+		</tr>
+	</table>
+	<script src="PeopleDashboardTemplate.js"></script>
+</body>
+</html>
