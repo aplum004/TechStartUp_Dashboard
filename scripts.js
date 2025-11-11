@@ -1,6 +1,6 @@
 //Sidebar toggle
-var sidebarOpen = False
-var sidebar = document.getElementById("sidebar");
+let sidebarOpen = false;
+const sidebar = document.getElementById("sidebar");
 function openSidebar() {
   if(!sidebarOpen) {
     sidebar.classList.add("sidebar-responsive");
