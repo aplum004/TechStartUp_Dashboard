@@ -111,3 +111,30 @@ body {
     overflow-y: auto;
     padding: 20px 20px;
 }
+.main-title {
+    display: flex;
+    justify-content: space-between;
+}
+.main-title > p {
+    font-size: 20px;
+}
+.main-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 25px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 1px soild #d2d2d3;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+.card:first-child {
+    border-left: 7px solid #246dec;
+}
