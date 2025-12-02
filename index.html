@@ -1,85 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Self Driving Car Dashboard</title>
-        <!-- Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Self Driving Car Dashboard</title>
 
-       <!-- Material Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-     
- 
-    </head>
-    <body>
-        
-        <div class="grid-container">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-      <!-- Header -->
-      <header class="header">
-        <div class="menu-icon" onclick="openSidebar()">
-          <span class="material-icons-outlined">menu</span>
-        </div>
-          
-        <div class="header-left">
-          <span class="material-icons-outlined">search</span>
-        </div>
-          
-        <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span class="material-icons-outlined">account_circle</span>
-        </div>
-          
-      </header>
-            <!--Sidebar-->
-            <aside id="sidebar">
-                <div class="sidebar-title">
-                    <div class="sidebar-brand">
-                        <span class="material-icons-outlined">inventory</span> Smart Car Dashboard
-                    </div>
-                    <span class="material-icons-outlined" onclick="closeSideBar()">close</span>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="material-icons-outlined">email</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">inventory</span> Smart Car Dashboard
                 </div>
-                <ul class="sidebar-list">
-                    <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">dashboard</span> Dashboard
-                    </li>
-                    <li class="sidebar-list-item">
-                    <span class="material-symbols-outlined">dataset</span> Dataset
-                    </li>
-                    <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">poll</span> Reports
-                    </li>
-                    <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">settings</span> Settings
-                    </li>
-                </ul>
-            </aside>
-            <!--Main-->
-            <main class="main-container">
-                <div class="main-title">
-                    <p class="font-weight-bold">DASHBOARD</p>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item"><span class="material-icons-outlined">dashboard</span> Dashboard</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">dataset</span> Dataset</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">poll</span> Reports</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">settings</span> Settings</li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-container">
+
+            <div class="main-title">
+                <p class="font-weight-bold">DASHBOARD</p>
+            </div>
+
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Top 5 Smart Cars</p>
+                        <span class="material-icons-outlined text-blue">bar_chart</span>
+                    </div>
+                    <span class="text-primary font-weight-bold">249</span>
                 </div>
-                <div class="main-cards">
-                    <div class="card">
-                        <div class="card-inner">
-                            <p class="text-primary">CHARTS</p>
-                            <span class="material-symbols-outlined text-blue">bar_chart</span> BarChart
-                        </div>
-                        <span class="text-primary font-weight-bold">249</span>
-                    </div>
-                    <div class="charts">
-                        <div class="charts-card">
-                            <p class="chart-title">Top 5 Smart Cars</p>
-                            <div id="bar-chart"></div>
-                        </div>
-                    </div>
-            </main>
-        </div>
-        <!--Charts-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/5.3.5/apexcharts.min.js"></script>
-        <script src="./scripts.js"></script>
-    </body>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts">
+                <div class="charts-card">
+                    <p class="chart-title">Top 5 Smart Cars</p>
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/5.3.5/apexcharts.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
 </html>
