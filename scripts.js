@@ -44,7 +44,7 @@ function navigate(pageId) {
         el.classList.remove('slide-up');
         void el.offsetWidth; 
         el.classList.add('slide-up');
-      });                                                        });
+      });                                                      
     } else {
       p.classList.remove('active');
     }
