@@ -3,9 +3,10 @@ let sidebarOpen = false;
 const sidebar = document.getElementById("sidebar");
 const sidebarItems = [];
 afterDomReady(() => {
-document.querySelectorAll('.sidebar-list-item').forEach((el, idx) => {
+document.querySelectorAll('.sidebar-list-item').forEach((el) => {
 el.addEventListener('click', () => {
-document.querySelectorAll('.sidebar-list-item').forEach(i=>i.classList.remove('active'));
+document.querySelectorAll('.sidebar-list-item').forEach((i)=>i.classList.remove('active')
+                                                       );
 el.classList.add('active');
   });
 });
@@ -13,11 +14,15 @@ const first = document.querySelector('.sidebar-list-item');
   if(first) first.classList.add('active');
 
 const darkBtn = document.getElementById('dark-toggle');
-  if(darkBtn) darkBtn.addventListener('click', toggleDarkMode);
+  if(darkBtn) darkBtn.addEventListener('click', toggleDarkMode);
 });
-function afterDomReady(fin){ 
-  if (document.readyState === 'loading') documnet.addEventListener('DOMContentLoaded',fn);
-  else fn(); }
+function afterDomReady(fn){ 
+  if (document.readyState === 'loading') {
+    documnet.addEventListener('DOMContentLoaded',fn);
+  } else{
+    fn(); 
+  }
+}
 function openSidebar() {
   if (!sidebarOpen) {
     sidebar.classList.add("sidebar-responsive");
@@ -35,8 +40,10 @@ function navigate(pageId) {
   document.querySelectorAll('.page').forEach(p => {
     if(p.id === 'page-' + pageId){
       p.classList.add('active');
-      p.querySelectorAll('.charts-card, .card').forEach(el => {el.classList.remove('slide-up');
-                                                               void el.offsetWidth; el.classList.add('slide-up');
+      p.querySelectorAll('.charts-card, .card').forEach((el) => {
+        el.classList.remove('slide-up');
+        void el.offsetWidth; 
+        el.classList.add('slide-up');
                                                               });
     } else {
       p.classList.remove('active');
