@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Self Driving Car Data</title>
+        <title>Self Driving Car Dashboard</title>
         <!-- Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -22,14 +22,17 @@
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div>
+          
         <div class="header-left">
           <span class="material-icons-outlined">search</span>
         </div>
+          
         <div class="header-right">
           <span class="material-icons-outlined">notifications</span>
           <span class="material-icons-outlined">email</span>
           <span class="material-icons-outlined">account_circle</span>
         </div>
+          
       </header>
             <!--Sidebar-->
             <aside id="sidebar">
@@ -70,6 +73,7 @@
                     <div class="charts">
                         <div class="charts-card">
                             <p class="chart-title">Top 5 Smart Cars</p>
+                            <div id="bar-chart"></div>
                         </div>
                     </div>
             </main>
