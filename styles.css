@@ -1,5 +1,101 @@
 /*light/dark mode*/
 :root {
+ --bg: #f5f7fa;
+  --text: #1a1a1a;
+  --card: #ffffff;
+  --accent: #4f35a1;
+  --glass-border: rgba(0,0,0,0.08);
+  --shadow: 0px 4px 12px rgba(0,0,0,0.08);
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #e4e4e4;
+  --card: #1e1e1e;
+  --accent: #8b6cff;
+  --glass-border: rgba(255,255,255,0.12);
+  --shadow: 0px 4px 16px rgba(0,0,0,0.3);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+}
+
+/* Sidebar */
+#sidebar {
+  grid-area: sidebar;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-list-item {
+  padding: 12px;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sidebar-list-item:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+.sidebar-list-item.active {
+  background: var(--accent);
+  color: white;
+}
+
+/* Header */
+.header {
+  grid-area: header;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Main Content */
+.main-container {
+  grid-area: main;
+  padding: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+/* Charts */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
 
 
 .charts-card {
