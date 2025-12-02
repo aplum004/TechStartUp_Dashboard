@@ -37,21 +37,21 @@ function closeSidebar() {
   }
 }
 function navigate(pageId) {
-  document.querySelectorAll('.page').forEach(p => {
+  document.querySelectorAll('.page').forEach((p) => {
     if(p.id === 'page-' + pageId){
       p.classList.add('active');
       p.querySelectorAll('.charts-card, .card').forEach((el) => {
         el.classList.remove('slide-up');
         void el.offsetWidth; 
         el.classList.add('slide-up');
-                                                              });
+      });                                                        });
     } else {
       p.classList.remove('active');
     }
   });
 }
 function toggleDarkMode() {
-  document.body.classList.toggle('dark");
+  document.body.classList.toggle('dark');
       try { localStorage.setItem('dashboard-dark', document.body.classList.contains('dark')) }catch(e){}
     }
 afterDomReady(()=>{
@@ -129,7 +129,7 @@ const areaChartOptions = {
   chart: {
     height: 320,
     type: 'area',
-    animations:{ enabled: true, easing: 'easeinout', speed:800 }
+    animations:{ enabled: true, easing: 'easeinout', speed:800 },
     toolbar: {
       show: false,
     },
@@ -138,7 +138,7 @@ const areaChartOptions = {
   dataLabels: {
     enabled: false,
   },
-  stroke: { curve:'smooth' }, xaxis{ categories:['2018', '2019', '2020','2023','2024']},
+  stroke: { curve:'smooth' }, xaxis:{ categories:['2018', '2019', '2020','2023','2024']},
   yaxis: [
     {
       title: {
@@ -148,13 +148,13 @@ const areaChartOptions = {
     {
       opposite: true,
       title: {
-        text:'Eleectric Smart Car',
+        text:'Electric Smart Car',
       },
     },
     {
       opposite: true,
       title: {
-        text:'Autonmous Smart Car',
+        text:'Autonomous Smart Car',
       },
     },
   ],
@@ -170,10 +170,13 @@ let areaMode = 0;
 function toggleAreaMode(){
   if(!areaChart) return;
   if(areaMode === 0) {
-    areaChart.updateOptions({series:[ areaChart.w.globals.series[1] ] }, true, true);
+    areaChart.updateOptions({
+      series:[ areaChart.w.globals.series[1]] }, true, true);
     areaMode = 1;
   } else{
-    areaChart.updateOptions({ series: [{ name: 'Total Revenue', data: [57.567.3,77.2,93.8,111.8,128.4,141.8] }, 
+    areaChart.updateOptions({ 
+      series: [{
+        name: 'Total Revenue', data:[57.50, 67.30, 77.20, 93.80, 111.80, 128.40, 141.80] }, 
                                        { name:'Electric', data:[28.18,32.98,37.83,45.96,54.78,62.92,69.48] }, 
                                        { name:'Autonomous', data:[16.33,19.11,21.92,26.64,31.75,36.47,40.27] }] }, true, true);
     areaMode= 0;
