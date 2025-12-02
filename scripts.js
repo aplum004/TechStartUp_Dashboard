@@ -52,7 +52,54 @@ var barChartOptions = {
 
 var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
 barChart.render();
-
-    
+//Area Chart
+var areaChartOptions = {
+  series: [{
+    name:'Total Revenue',
+    data: [57.50, 67.30, 77.20, 93.80, 111.80, 128.40, 141.80]
+  }, {
+    name: 'Electric Smart Car',
+    data: [28.18, 32.98, 37.83, 45.96, 54.78, 62.92, 69.48]
+  }, {
+    name: 'Autonomous Smart Car',
+    data: [16.33, 19.11, 21.92, 26.64, 31.75, 36.47, 40.27]
+  }],
+  chart: {
+    height: 350,
+    type: 'area',
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ["#4f35a1", "#246dec"],
+  dataLabels: {
+    enabled: false,
+  },
+  yaxis: [
+    {
+      title: {
+        text: 'Total Revenue',
+      },
+    },
+    {
+      opposite: true,
+      title: {
+        text:'Eleectric Smart Car',
+      },
+    },
+    {
+      opposite: true,
+      title: {
+        text:'Eleectric Smart Car',
+      },
+    },
+  ],
+  tooltip: {
+    shared: true,
+    intersect: false,
+  }
+};
+var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
+areaChart.render();
 
   
