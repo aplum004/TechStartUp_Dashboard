@@ -2,16 +2,7 @@
 let sidebarOpen = false;
 const sidebar = document.getElementById("sidebar");
 const sidebarItems = [];
-afterDomReady(() => {
-document.querySelectorAll('.sidebar-list-item').forEach((el) => {
-el.addEventListener('click', () => {
-document.querySelectorAll('.sidebar-list-item').forEach((i)=>i.classList.remove('active')
-                                                       );
-el.classList.add('active');
-  });
-});
-const first = document.querySelector('.sidebar-list-item');
-  if(first) first.classList.add('active');
+
 
 
 function openSidebar() {
@@ -43,10 +34,9 @@ function navigate(pageId) {
 }
 
 
-let barChart, areaChart;
-afterDomReady(()=>{
+
 // Bar Chart
-const barChartOptions = {
+var barChartOptions = {
   series: [{
     data: [10, 8, 6, 4, 2]
   }],
@@ -78,10 +68,10 @@ const barChartOptions = {
     title: { text: "Count" }
   }
 };
-barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
+var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
 barChart.render();
 //Area Chart
-const areaChartOptions = {
+var areaChartOptions = {
   series: [{
     name:'Total Revenue',
     data: [57.50, 67.30, 77.20, 93.80, 111.80, 128.40, 141.80]
@@ -129,24 +119,9 @@ const areaChartOptions = {
     intersect: false,
   }
 };
-areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
+var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
 areaChart.render();
 }); 
-let areaMode = 0;
-function toggleAreaMode(){
-  if(!areaChart) return;
-  if(areaMode === 0) {
-    areaChart.updateOptions({
-      series:[ areaChart.w.globals.series[1]] }, true, true);
-    areaMode = 1;
-  } else{
-    areaChart.updateOptions({ 
-      series: [{
-        name: 'Total Revenue', data:[57.50, 67.30, 77.20, 93.80, 111.80, 128.40, 141.80] }, 
-                                       { name:'Electric', data:[28.18,32.98,37.83,45.96,54.78,62.92,69.48] }, 
-                                       { name:'Autonomous', data:[16.33,19.11,21.92,26.64,31.75,36.47,40.27] }] }, true, true);
-    areaMode= 0;
-  }
-}
+
 
   
