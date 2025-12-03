@@ -52,25 +52,7 @@ afterDomReady(()=>{
   try{ if(localStorage.getItem('dashboard-dark') === 'true') document.body.classList.add('dark'); }catch(e){}
 
   });
-function createChartToolbar() {
-  const tb = document.createElement('div');
-  tb.className ='chart-toolbar';
-  tb.innerHTML = `
-  <button class = "chart-btn" id="btn-toggle-area" title="toggle Area View">⚡</button>
-  `;
-  const areaCard = document.querySelector('#area-chart').parentElement;
-  areaCard.style.position = 'relative';
-tb.style.position = 'absolute';
-tb.style.top = '10px';
-tb.style.right = '10px';
-tb.style.display = 'flex';
-tb.style.gap = '6px';
-tb.style.background = 'rgba(0,0,0,0.05)';
-tb.style.padding = '6px 8px';
-tb.style.borderRadius = '8px';
-areaCard.appendChild(tb);
-document.getElementById('btn-toggle-area').addEventListener('click', toggleAreaMode);
-}
+
 let barChart, areaChart;
 afterDomReady(()=>{
 // Bar Chart
