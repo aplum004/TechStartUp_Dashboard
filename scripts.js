@@ -38,7 +38,7 @@ function navigate(pageId) {
 // Bar Chart
 var barChartOptions = {
   series: [{
-    data: [10, 8, 6, 4, 2]
+    data: [40, 35, 30, 25, 20, 15, 10, 5, 0]
   }],
 
   chart: {
@@ -122,6 +122,29 @@ var areaChartOptions = {
 var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
 areaChart.render();
 
+var pieChartOptions = {
+          series: [2, 8, 0, 0, 0],
+          series: [4, 29, 1, 5, 6],
+          chart: {
+          width: 380,
+          type: 'pie',
+        },
+        labels: ['Camera', 'Radar', 'LIDAR', 'Ultrasonic', 'Autonomy Level'],
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
 
-
-  
+        var pieChart = new ApexCharts(document.querySelector("#pie-chart"), pieChartoptions);
+        pieChart.render();
+      
+      
+    
