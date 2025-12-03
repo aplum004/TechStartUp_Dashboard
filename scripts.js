@@ -16,13 +16,7 @@ const first = document.querySelector('.sidebar-list-item');
 const darkBtn = document.getElementById('dark-toggle');
   if(darkBtn) darkBtn.addEventListener('click', toggleDarkMode);
 });
-function afterDomReady(fn){ 
-  if (document.readyState === 'loading') {
-    documnet.addEventListener('DOMContentLoaded',fn);
-  } else{
-    fn(); 
-  }
-}
+
 function openSidebar() {
   if (!sidebarOpen) {
     sidebar.classList.add("sidebar-responsive");
