@@ -13,9 +13,6 @@ el.classList.add('active');
 const first = document.querySelector('.sidebar-list-item');
   if(first) first.classList.add('active');
 
-const darkBtn = document.getElementById('dark-toggle');
-  if(darkBtn) darkBtn.addEventListener('click', toggleDarkMode);
-});
 
 function openSidebar() {
   if (!sidebarOpen) {
@@ -44,14 +41,7 @@ function navigate(pageId) {
     }
   });
 }
-function toggleDarkMode() {
-  document.body.classList.toggle('dark');
-      try { localStorage.setItem('dashboard-dark', document.body.classList.contains('dark')) }catch(e){}
-    }
-afterDomReady(()=>{
-  try{ if(localStorage.getItem('dashboard-dark') === 'true') document.body.classList.add('dark'); }catch(e){}
 
-  });
 
 let barChart, areaChart;
 afterDomReady(()=>{
