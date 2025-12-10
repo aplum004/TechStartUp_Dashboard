@@ -132,6 +132,15 @@ const data = {
     Lidar: [1, 0, 1],
     Ultrasonic: [12, 6, 8]
 };
+const data2 = {
+    Company: ['Tesla', 'Waymo'],
+    Model: ['Model S / Model Y', '(Jaguar I-PACE / Chrysler Pacifica)'],
+    Autonomy_Level: [2, 4],
+    Cameras: [8, 29],
+    Radar: [0, 1],
+    LIDAR: [0, 5],
+    Ultrasonic: [0, 6]
+};
 const autonomyTrace = {
     x: data.Company,
     y: data.Autonomy_Level,
@@ -142,9 +151,21 @@ const autonomyTrace = {
         color: ['#4285F4', '#EA4335', '#34A853']
     }
 };
-
 Plotly.newPlot('autonomyBar', [autonomyTrace], {
     title: 'Autonomy Level via Company'
+});
+const autonomyBarData = [{
+    x: data.Company,
+    y: data.Autonomy_Level,
+    type: "bar",
+    text: data.Autonomy_Level,
+    textposition: "outside",
+    marker: { color: ["#e63946", "#457b9d"] }
+}];
+
+Plotly.newPlot("autonomyBarTW", autonomyBarData, {
+    title: "Autonomy level via company (Tesla x Waymo)",
+    yaxis: { title: "Autonomy Level" }
 });
 const sensorTypes = ['Cameras', 'Radar', 'Lidar', 'Ultrasonic'];
 const colors = ['#4285F4', '#34A853', '#A142F4', '#EA4335'];
@@ -183,6 +204,57 @@ function makePie(divId, companyIndex, companyName) {
         title: `${companyName} – Sensor Percentages`
     });
 }
+const sensorStackData = [
+    {
+        x: data.Company,
+        y: data.Cameras,
+        name: "Cameras",
+        type: "bar"
+    },
+    {
+        x: data.Company,
+        y: data.Radar,
+        name: "Radar",
+        type: "bar"
+    },
+    {
+        x: data.Company,
+        y: data.LIDAR,
+        name: "LIDAR",
+        type: "bar"
+    },
+    {
+        x: data.Company,
+        y: data.Ultrasonic,
+        name: "Ultrasonic",
+        type: "bar"
+    }
+];
+
+Plotly.newPlot("sensorStack", sensorStackData, {
+    title: "Sensors via company (Tesla x Waymo)",
+    barmode: "stack"
+});
+function makePied(companyIndex, divID) {
+    const sensors = {
+        Cameras: data.Cameras[companyIndex],
+        Radar: data.Radar[companyIndex],
+        LIDAR: data.LIDAR[companyIndex],
+        Ultrasonic: data.Ultrasonic[companyIndex]
+    };
+
+    Plotly.newPlot(divID, [{
+        type: "pie",
+        labels: Object.keys(sensors),
+        values: Object.values(sensors),
+    }], {
+        title: data.Company[companyIndex] + " : Sensor Percentages"
+    });
+}
+
+makePied(0, "pieTesla");
+makePied(1, "pieWaymo");
+
 makePie('pieLucid', 0, 'Lucid Motors');
 makePie('pieHyundai', 1, 'Hyundai Ioniq');
 makePie('pieMercedes', 2, 'Mercedes Benz');
