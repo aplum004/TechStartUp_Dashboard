@@ -124,23 +124,15 @@ areaChart.render();
 
 //Data
 const data = {
-    Company: ['Lucid Motors', 'Hyundai Ioniq', 'Mercedes Benz'],
-    Model: ['Lucid Air / Gravity', 'IONIQ 5 / IONIQ 6', 'EQS / S-Class'],
-    Autonomy_Level: [4, 2, 3],
-    Cameras: [14, 8, 10],
-    Radar: [5, 3, 4],
-    Lidar: [1, 0, 1],
-    Ultrasonic: [12, 6, 8]
+    Company: ['Lucid Motors', 'Hyundai Ioniq', 'Mercedes Benz', 'Tesla', 'Waymo'],
+    Model: ['Lucid Air / Gravity', 'IONIQ 5 / IONIQ 6', 'EQS / S-Class', 'Model S / Model Y','(Jaguar I-PACE / Chrysler Pacifica)'],
+    Autonomy_Level: [4, 2, 3, 2, 4],
+    Cameras: [14, 8, 10, 8, 29],
+    Radar: [5, 3, 4, 0, 1],
+    Lidar: [1, 0, 1, 0, 5],
+    Ultrasonic: [12, 6, 8, 0, 6]
 };
-const data2 = {
-    Company: ['Tesla', 'Waymo'],
-    Model: ['Model S / Model Y', '(Jaguar I-PACE / Chrysler Pacifica)'],
-    Autonomy_Level: [2, 4],
-    Cameras: [8, 29],
-    Radar: [0, 1],
-    LIDAR: [0, 5],
-    Ultrasonic: [0, 6]
-};
+
 const autonomyTrace = {
     x: data.Company,
     y: data.Autonomy_Level,
@@ -198,7 +190,7 @@ function makePie(divId, companyIndex, companyName) {
         type: 'pie',
         textinfo: 'percent',
         marker: {
-            colors: ['#4285F4', '#EA4335', '#34A853', '#A142F4']
+            colors: ['#4285F4', '#DB95D3', '#34A853', '#A142F4','#C495DB',  ]
         }
     }], {
         title: `${companyName} – Sensor Percentages`
@@ -235,29 +227,13 @@ Plotly.newPlot("sensorStack", sensorStackData, {
     title: "Sensors via company (Tesla x Waymo)",
     barmode: "stack"
 });
-function makePied(companyIndex, divID) {
-    const sensors = {
-        Cameras: data.Cameras[companyIndex],
-        Radar: data.Radar[companyIndex],
-        LIDAR: data.LIDAR[companyIndex],
-        Ultrasonic: data.Ultrasonic[companyIndex]
-    };
 
-    Plotly.newPlot(divID, [{
-        type: "pie",
-        labels: Object.keys(sensors),
-        values: Object.values(sensors),
-    }], {
-        title: data.Company[companyIndex] + " : Sensor Percentages"
-    });
-}
 
-makePied(0, "pieTesla");
-makePied(1, "pieWaymo");
 
 makePie('pieLucid', 0, 'Lucid Motors');
 makePie('pieHyundai', 1, 'Hyundai Ioniq');
 makePie('pieMercedes', 2, 'Mercedes Benz');
-      
+makePie('pieTesla', 3, 'Tesla');
+makePie('pieWaymo', 4, 'Waymo');
       
     
