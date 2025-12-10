@@ -122,29 +122,70 @@ var areaChartOptions = {
 var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
 areaChart.render();
 
-var pieChartOptions = {
-          series: [2, 8, 0, 0, 0],
-          series: [4, 29, 1, 5, 6],
-          chart: {
-          width: 380,
-          type: 'pie',
-        },
-        labels: ['Camera', 'Radar', 'LIDAR', 'Ultrasonic', 'Autonomy Level'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-        };
+//Data
+const data = {
+    Company: ['Lucid Motors', 'Hyundai Ioniq', 'Mercedes Benz'],
+    Model: ['Lucid Air / Gravity', 'IONIQ 5 / IONIQ 6', 'EQS / S-Class'],
+    Autonomy_Level: [4, 2, 3],
+    Cameras: [14, 8, 10],
+    Radar: [5, 3, 4],
+    Lidar: [1, 0, 1],
+    Ultrasonic: [12, 6, 8]
+};
+const autonomyTrace = {
+    x: data.Company,
+    y: data.Autonomy_Level,
+    type: 'bar',
+    text: data.Autonomy_Level,
+    textposition: 'outside',
+    marker: {
+        color: ['#4285F4', '#EA4335', '#34A853']
+    }
+};
 
-        var pieChart = new ApexCharts(document.querySelector("#pie-chart"), pieChartoptions);
-        pieChart.render();
+Plotly.newPlot('autonomyBar', [autonomyTrace], {
+    title: 'Autonomy Level via Company'
+});
+const sensorTypes = ['Cameras', 'Radar', 'Lidar', 'Ultrasonic'];
+const colors = ['#4285F4', '#34A853', '#A142F4', '#EA4335'];
+
+const sensorTraces = sensorTypes.map((sensor, i) => ({
+    x: data.Company,
+    y: data[sensor],
+    name: sensor,
+    type: 'bar',
+    marker: { color: colors[i] }
+}));
+
+Plotly.newPlot('sensorBar', sensorTraces, {
+    barmode: 'stack',
+    title: 'Sensors by Company'
+});
+function makePie(divId, companyIndex, companyName) {
+    const values = [
+        data.Cameras[companyIndex],
+        data.Ultrasonic[companyIndex],
+        data.Radar[companyIndex],
+        data.Lidar[companyIndex]
+    ];
+
+    const labels = ['Cameras', 'Ultrasonic', 'Radar', 'Lidar'];
+
+    Plotly.newPlot(divId, [{
+        values: values,
+        labels: labels,
+        type: 'pie',
+        textinfo: 'percent',
+        marker: {
+            colors: ['#4285F4', '#EA4335', '#34A853', '#A142F4']
+        }
+    }], {
+        title: `${companyName} – Sensor Percentages`
+    });
+}
+makePie('pieLucid', 0, 'Lucid Motors');
+makePie('pieHyundai', 1, 'Hyundai Ioniq');
+makePie('pieMercedes', 2, 'Mercedes Benz');
       
       
     
